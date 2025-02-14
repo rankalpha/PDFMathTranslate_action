@@ -9,7 +9,12 @@ on:
 jobs:
   translate-pdfs:
     runs-on: ubuntu-latest
-
+    
+    # 设置环境变量
+    env:
+      SILICON_API_KEY: ${{ secrets.SILICON_API_KEY }}
+      SLICON_MODEL: ${{ secrets.SLICON_MODEL }}
+      
     steps:
     # Checkout the repository to access pdfs.txt
     - name: Checkout Repository
@@ -44,8 +49,9 @@ jobs:
     # Translate PDFs using PDFMathTranslate
     - name: Translate PDFs
       run: |
-        mkdir -p translated_pdfs      
-        pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs
+        mkdir -p translated_pdfs     
+        echo $SLICON_MODEL
+        pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs -s silicon
 
     # Move translated PDFs to doc directory
     - name: Prepare to Upload
