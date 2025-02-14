@@ -31,8 +31,14 @@ jobs:
       run: |
         mkdir -p pdfs
         while IFS= read -r url; do
+          # 提取 URL 的 basename
           filename=$(basename "$url")
-          wget -O "pdfs/$filename" "$url"
+          # 检查文件名是否已经包含 .pdf 后缀
+          if [[ "$filename" != *.pdf ]]; then
+            filename="${filename}.pdf"
+          fi
+          # 下载文件到指定目录
+          wget -O "pdfs/$filename" "$url"          
         done < pdfs.txt
 
     # Translate PDFs using PDFMathTranslate
