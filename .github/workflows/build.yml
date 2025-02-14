@@ -51,7 +51,7 @@ jobs:
     - name: Prepare to Upload
       run: |
         mkdir -p doc
-        mv translated_pdfs/ doc/
+        mv translated_pdfs/*.* doc/
         ls doc/*.* -a
 
     # Commit and Push Translated PDFs using github-actions-x/commit
