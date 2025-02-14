@@ -45,7 +45,7 @@ jobs:
     - name: Translate PDFs
       run: |
         mkdir -p translated_pdfs      
-        pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs -p 1-3
+        pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs -p 1
 
     # Move translated PDFs to doc directory
     - name: Prepare to Upload
