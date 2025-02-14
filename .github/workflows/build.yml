@@ -44,6 +44,7 @@ jobs:
     # Translate PDFs using PDFMathTranslate
     - name: Translate PDFs
       run: |
+        mkdir -p translated_pdfs      
         pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs
 
     # Move translated PDFs to doc directory
