@@ -51,7 +51,7 @@ jobs:
       run: |
         mkdir -p translated_pdfs     
         echo $SLICON_MODEL
-        pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs -s silicon
+        pdf2zh -li en -lo zh --dir pdfs -o translated_pdfs -s silicon -p 1
 
     # Move translated PDFs to doc directory
     - name: Prepare to Upload
